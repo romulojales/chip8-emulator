@@ -35,11 +35,14 @@ Another Chip8 emulator
 CHIP-8 has 35 opcodes big-endian, each instruction has exactly two bytes.
 
 
-| Opcode | Assembly command  | 	Explanation     |
-|--------|-------------------|------------------|
+| Opcode | Assembly command  | 	Explanation       |
+|--------|-------------------|--------------------|
+| 1NNN   | JUMP  | Jump to the adress NNN         |
+| 2NNN   | CALL  | Move the PC to the address NNN |
 | 3xNN   | IF_EQ | If Vx == NN skip the next instruction |
-| 6xNN   | LD    | The interpreter puts the value NN into register Vx.
+| 6xNN   | LOAD  | Load the value NN into register Vx. |
+| 8xy0   | LOAD  | Load the value of Vy into register Vx. |
 | ANNN   | I     | The interpreter puts the value nnn into register I.
 | CxNN   | RAND  | The interpreter picks a random number from 0 to 255, performs a AND with the numberNN then stores it in the register Vx
-
+| DxyN   | DRAW  | Draw the sprites at position (Vx, Vy) from register I until count n
 
